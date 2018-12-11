@@ -13,7 +13,7 @@ const printMessage = (username, badgeCount, points) => {
 
 // printMessage('hmiu', 100, 300923);
 
-const getProfile = (username) => {
+const get = (username) => {
     try {
         const request = https.get(`https://teamtreehouse.com/${username}.json`, (response) => {
             if (response.statusCode === 200) {
@@ -50,11 +50,5 @@ const getProfile = (username) => {
     }
 }
 
-// const users = ['haileemiu2', 'chalkers'];
-// console.log(process.argv);
-const users = process.argv.slice(2);
 
-users.forEach(username => {
-    getProfile(username);
-})
-
+module.exports.get = get;
